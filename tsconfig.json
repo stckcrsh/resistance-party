@@ -15,7 +15,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@resistance/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@resistance/missions": ["libs/missions/src/index.ts"],
+      "@resistance/vote-tracker": ["libs/vote-tracker/src/index.ts"],
+      "@resistance/players": ["libs/players/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

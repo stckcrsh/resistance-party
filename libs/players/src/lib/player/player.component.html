@@ -1,0 +1,22 @@
+<div
+  class="player"
+  [class.player__approved]="state == VOTE.APPROVED"
+  [class.player__rejected]="state == VOTE.REJECTED"
+>
+  <img
+    class="player__locked"
+    *ngIf="state==VOTE.VOTE_LOCKED || state==VOTE.MISSION_LOCKED"
+    src="/assets/images/locked.png"
+  />
+  <div class="player__name">
+    <span fittext>{{ name }}</span>
+  </div>
+  <div class="player__vote" *ngIf="state==VOTE.REJECTED || state==VOTE.APPROVED">
+    <div class="player__vote__content">
+      <mat-icon *ngIf="state == VOTE.REJECTED">close</mat-icon>
+      <mat-icon *ngIf="state == VOTE.APPROVED">location_searching</mat-icon>
+
+      <span>{{ state == VOTE.APPROVED ? 'Approved' : 'Rejected' }}</span>
+    </div>
+  </div>
+</div>

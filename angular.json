@@ -23,9 +23,17 @@
             "aot": false,
             "assets": [
               "apps/resistance/src/favicon.ico",
-              "apps/resistance/src/assets"
+              "apps/resistance/src/assets",
+              {
+                "glob": "**/*",
+                "input": "./lib/shared-asssets/",
+                "output": "./"
+              }
             ],
-            "styles": ["apps/resistance/src/styles.scss"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "apps/resistance/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -84,7 +92,10 @@
               "apps/resistance/tsconfig.app.json",
               "apps/resistance/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/resistance/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/resistance/**"
+            ]
           }
         },
         "test": {
@@ -118,9 +129,192 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/resistance-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/resistance-e2e/**"]
+            "tsConfig": [
+              "apps/resistance-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/resistance-e2e/**"
+            ]
           }
+        }
+      }
+    },
+    "api-interfaces": {
+      "root": "libs/api-interfaces",
+      "sourceRoot": "libs/api-interfaces/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/api-interfaces/tsconfig.lib.json",
+              "libs/api-interfaces/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/api-interfaces/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/api-interfaces/jest.config.js",
+            "tsConfig": "libs/api-interfaces/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "missions": {
+      "projectType": "library",
+      "root": "libs/missions",
+      "sourceRoot": "libs/missions/src",
+      "prefix": "resistance",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/missions/tsconfig.lib.json",
+              "libs/missions/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/missions/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/missions/jest.config.js",
+            "tsConfig": "libs/missions/tsconfig.spec.json",
+            "setupFile": "libs/missions/src/test-setup.ts"
+          }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/missions/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "vote-tracker": {
+      "projectType": "library",
+      "root": "libs/vote-tracker",
+      "sourceRoot": "libs/vote-tracker/src",
+      "prefix": "resistance",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/vote-tracker/tsconfig.lib.json",
+              "libs/vote-tracker/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/vote-tracker/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/vote-tracker/jest.config.js",
+            "tsConfig": "libs/vote-tracker/tsconfig.spec.json",
+            "setupFile": "libs/vote-tracker/src/test-setup.ts"
+          }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/vote-tracker/.storybook"
+            }
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
+    },
+    "players": {
+      "projectType": "library",
+      "root": "libs/players",
+      "sourceRoot": "libs/players/src",
+      "prefix": "resistance",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/players/tsconfig.lib.json",
+              "libs/players/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/players/**"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/players/jest.config.js",
+            "tsConfig": "libs/players/tsconfig.spec.json",
+            "setupFile": "libs/players/src/test-setup.ts"
+          }
+        },
+        "storybook": {
+          "builder": "@nrwl/storybook:storybook",
+          "options": {
+            "uiFramework": "@storybook/angular",
+            "port": 4400,
+            "config": {
+              "configFolder": "libs/players/.storybook"
+            },
+            "staticDir": [
+              "libs/shared-assets"
+            ]
+          },
+          "configurations": {
+            "ci": {
+              "quiet": true
+            }
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
         }
       }
     }

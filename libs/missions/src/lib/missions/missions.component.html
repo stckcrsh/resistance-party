@@ -1,0 +1,18 @@
+<div class="mission-list">
+<ng-container *ngFor="let round of rounds">
+  <resistance-mission
+    class="mission-list__mission"
+    [size]="round.missionSize"
+    [current]="false"
+    [status]="round.missionSuccess?missionStatus.SUCCESS:missionStatus.FAILURE"
+  ></resistance-mission>
+</ng-container>
+<ng-container *ngFor="let size of missionSizes.slice(rounds.length, missionSizes.length); index as idx">
+  <resistance-mission
+  class="mission-list__mission"
+  [size]="size"
+  [current]="idx===0"
+  [status]="missionStatus.NONE"
+  ></resistance-mission>
+</ng-container>
+</div>

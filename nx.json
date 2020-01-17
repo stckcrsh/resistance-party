@@ -13,6 +13,18 @@
     },
     "resistance": {
       "tags": []
+    },
+    "api-interfaces": {
+      "tags": []
+    },
+    "missions": {
+      "tags": []
+    },
+    "vote-tracker": {
+      "tags": []
+    },
+    "players": {
+      "tags": []
     }
   }
 }

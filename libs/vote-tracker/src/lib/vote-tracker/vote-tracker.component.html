@@ -1,0 +1,11 @@
+<div class="vote-tracker">
+
+  <span *ngFor="let turn of [1,2,3,4,5]; index as idx">
+    <div class="vote" [class.last]="idx==4" [class.current]="idx==currentTurn">
+      <span class="vote__text">
+        <span>{{turn}}</span>
+      </span>
+    </div>
+  </span>
+
+</div>

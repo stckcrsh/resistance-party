@@ -1,0 +1,36 @@
+.vote-tracker {
+  display: flex;
+
+  & > span {
+    flex: 1;
+    padding: 6px;
+  }
+  .vote {
+    background-color: #fff;
+    border: 5px solid black;
+    position: relative;
+    border-radius: 50%;
+    width: 100%;
+    height: auto;
+    padding-top: 100%;
+    box-sizing: border-box;
+
+    .vote__text {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      height: 100%;
+      width: 100%;
+      font-size: 4em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &.current {
+      box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+      border: 5px solid rgba(81, 203, 238, 1);
+      color: rgba(81, 203, 238, 1);
+    }
+  }
+}

@@ -1,0 +1,46 @@
+.mission {
+  background-color: #fff;
+  border: 5px solid black;
+  position: relative;
+  border-radius: 50%;
+  width: 100%;
+  height: auto;
+  padding-top: 100%;
+  box-sizing: border-box;
+
+  .mission__size {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-size: 7em;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &.success {
+    background-color: blue;
+    color: white;
+
+    .mission__size {
+      display: none;
+    }
+  }
+
+  &.failure {
+    background-color: red;
+    color: black;
+
+    .mission__size {
+      display: none;
+    }
+  }
+
+  &.current {
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+    border: 5px solid rgba(81, 203, 238, 1);
+    color: rgba(81, 203, 238, 1);
+  }
+}

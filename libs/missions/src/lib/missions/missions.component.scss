@@ -1,0 +1,8 @@
+.mission-list {
+  display: flex;
+
+  &__mission {
+    flex: 1;
+    padding: 10px;
+  }
+}

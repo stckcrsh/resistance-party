@@ -1,0 +1,61 @@
+.player {
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding-top: 100%;
+
+  &__name {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+  }
+  &__locked {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.5;
+    z-index: 100;
+  }
+
+  &__vote {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 300;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    &__content {
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+      display: flex;
+      width: 50%;
+      height: calc(100% - 20%);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      mat-icon {
+        transform: scale(4);
+        padding-bottom: 10%;
+      }
+      span {
+        font-size: 20px;
+        position: absolute;
+        bottom: 32px;
+      }
+    }
+  }
+}
